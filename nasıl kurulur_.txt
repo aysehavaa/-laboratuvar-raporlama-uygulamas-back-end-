@@ -1,0 +1,83 @@
+# Laboratuvar Raporlama Uygulaması Kurulum ve Çalıştırma Kılavuzu
+
+Bu kılavuz, Spring Boot, JPA, Maven, React, Mantine ve Redux Toolkit (RTK) Query kullanılarak geliştirilmiş Laboratuvar Raporlama Uygulamasının nasıl kurulacağını ve çalıştırılacağını anlatmaktadır.
+
+## Gereksinimler
+
+### Backend İçin Gereksinimler
+- Java 11 veya üstü
+- Maven 3.6.0 veya üstü
+- Git
+
+### Frontend İçin Gereksinimler
+- Node.js 14 veya üstü
+- npm 6 veya üstü
+
+## Kurulum Adımları
+
+### 1. Depoyu Klonlama
+
+Öncelikle, projeyi GitHub'dan klonlayın:
+
+```bash
+git clone https://github.com/kullaniciadi/laboratuvar-raporlama-uygulamasi.git
+cd laboratuvar-raporlama-uygulamasi
+
+
+2. Backend Kurulumu ve Çalıştırma
+2.1. Maven Bağımlılıklarını İndirme
+Proje kök dizininde, Maven bağımlılıklarını indirmek için aşağıdaki komutu çalıştırın:
+
+
+mvn clean install
+2.2. Veritabanı Ayarları
+Uygulama, varsayılan olarak H2 veritabanı kullanacak şekilde yapılandırılmıştır. Ek bir yapılandırma gerektirmez.
+
+2.3. Uygulamayı Çalıştırma
+Spring Boot uygulamasını çalıştırmak için aşağıdaki komutu kullanın:
+
+mvn spring-boot:run
+Uygulama, varsayılan olarak http://localhost:8080 adresinde çalışacaktır.
+
+3. Frontend Kurulumu ve Çalıştırma
+3.1. Bağımlılıkları Yükleme
+Ön yüz (frontend) dizinine gidin ve npm bağımlılıklarını yükleyin:
+
+cd frontend
+npm install
+3.2. Ortam Değişkenleri
+Frontend uygulamasının backend ile iletişim kurabilmesi için, .env dosyasını oluşturun ve aşağıdaki içeriği ekleyin:
+
+REACT_APP_API_URL=http://localhost:8080
+3.3. Uygulamayı Çalıştırma
+React uygulamasını başlatmak için aşağıdaki komutu kullanın:
+
+npm start
+Uygulama, varsayılan olarak http://localhost:3000 adresinde çalışacaktır.
+
+Kullanıcı Girişi ve Yetkilendirme
+Uygulama, kullanıcı adı ve şifre ile giriş yapmayı gerektirir. Kullanıcı rolleri ve yetkiler aşağıdaki gibidir:
+
+Standart Kullanıcı: Rapor oluşturabilir, raporları görüntüleyebilir ve raporları düzenleyebilir.
+Yönetici: Tüm işlemleri gerçekleştirebilir (oluşturma, okuma, güncelleme, silme).
+1. Yönetici Kullanıcı Oluşturma
+Spring Boot uygulaması başlatıldıktan sonra, bir yönetici kullanıcı oluşturmak için veritabanında doğrudan kayıt ekleyebilirsiniz. H2 veritabanı konsoluna http://localhost:8080/h2-console adresinden erişilebilir.
+
+2. Standart Kullanıcı Oluşturma
+Yönetici girişi yaptıktan sonra, yönetici panelinden standart kullanıcılar oluşturabilirsiniz.
+
+API Belgeleri
+Uygulamanın API belgelerine erişmek için http://localhost:8080/swagger-ui.html adresini ziyaret edebilirsiniz. Bu sayfa, uygulamanın sunduğu tüm API uç noktalarını ve bu uç noktaların nasıl kullanılacağını gösterir.
+
+Testler
+Backend Testleri
+Birimin testlerini çalıştırmak için aşağıdaki komutu kullanın:
+mvn test
+Frontend Testleri
+Frontend testlerini çalıştırmak için aşağıdaki komutu kullanın:
+
+npm test
+Sonuç
+Bu kılavuz, Laboratuvar Raporlama Uygulamasının nasıl kurulacağını ve çalıştırılacağını kapsamaktadır. Herhangi bir sorunla karşılaşırsanız, lütfen proje deposunda bir sorun (issue) oluşturun.
+
+Bu kılavuz, hem backend hem de frontend uygulamasının nasıl kurulacağını ve çalıştırılacağını adım adım açıkla
